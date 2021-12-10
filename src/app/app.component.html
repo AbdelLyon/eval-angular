@@ -1,4 +1,19 @@
+<nav>
+  <ul style="display: flex; width: 300px ; justify-content:space-around">
+    <li>
+      <a routerLink="list">Lise de statistique</a>
+    </li>
+    <li>
+      <a routerLink="createStat">Creer une statistique</a>
+    </li>
+  </ul>
+
+
+
+</nav>
+
 <h1 *ngFor="let stat of stats"> {{stat.titre}} </h1>
 
-
 <app-statistique (eventEmitter)="clickEvent($event)" *ngFor="let stat of stats" [stats]="stat"></app-statistique>
+
+<router-outlet></router-outlet>
