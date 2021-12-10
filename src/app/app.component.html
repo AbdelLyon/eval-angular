@@ -1,4 +1,4 @@
 <h1 *ngFor="let stat of stats"> {{stat.titre}} </h1>
 
 
-<app-statistique *ngFor="let stat of stats" [stats]="stat"></app-statistique>
+<app-statistique (eventEmitter)="clickEvent($event)" *ngFor="let stat of stats" [stats]="stat"></app-statistique>

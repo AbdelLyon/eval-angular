@@ -12,8 +12,18 @@ export class AppComponent implements OnInit {
   public stats: Statistique[] = [];
 
 
+
+
   constructor(private statistiqueService: StatistiqueService) {
     this.stats = this.statistiqueService.stats
+  }
+
+  onDelete(stat: Statistique) {
+    this.statistiqueService.stats.splice(this.statistiqueService.stats.indexOf(stat), 1)
+  }
+
+  clickEvent(stat: Statistique) {
+    this.onDelete(stat)
   }
 
   ngOnInit() { }
