@@ -7,6 +7,7 @@ import { StatistiqueComponent } from './statistique/statistique.component';
 import { ListComponent } from './list/list.component';
 import { CreateStatComponent } from './create-stat/create-stat.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

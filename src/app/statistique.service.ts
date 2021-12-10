@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Statistique } from './models/statistique';
 
@@ -8,13 +9,15 @@ export class StatistiqueService {
 
   public stats: Statistique[] = []
 
-  constructor() {
+  constructor(private http: HttpClient) {
+    this.login()
+  }
 
-    this.stats = [new Statistique('fa1f5f40-be3b-11eb-91ec-7f5875ecfb46', 'Démographie en France', '60M'),
-    new Statistique('fa1f5f40-be3b-11eb-91ec-7f5875ecfb47', 'Démographie Du Maroc', '43M')];
-    setTimeout(() => {
-      this.stats.push(new Statistique('fa1f5f40-be3b-11eb-91ec-7f5875ecfb48', 'Altitude de la france', '9.82822M'))
-    }, 2000)
-
+  login() {
+    this.http.get(' https://stats.naminilamy.fr').toPromise().then(res => {
+      for (const r of res as any) {
+        this.stats.push(new Statistique(r.id, r.title, r.valeur))
+      }
+    }, err => console.log(err))
   }
 }
