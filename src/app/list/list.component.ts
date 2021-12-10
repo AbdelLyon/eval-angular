@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Statistique } from '../models/statistique';
+import { StatistiqueService } from '../statistique.service';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  public stats: Statistique[] = [];
+  @Output() eventEmitter: EventEmitter<Statistique> = new EventEmitter()
 
-  ngOnInit(): void {
+  constructor(private statistiqueService: StatistiqueService) {
+    this.stats = this.statistiqueService.stats
+
   }
+
+
+  onDelete(stat: Statistique) {
+    this.statistiqueService.stats.splice(this.statistiqueService.stats.indexOf(stat), 1)
+  }
+
+  clickEvent(stat: Statistique) {
+    this.onDelete(stat)
+  }
+
+
+  ngOnInit(): void { }
 
 }

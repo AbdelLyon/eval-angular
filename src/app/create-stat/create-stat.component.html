@@ -1,1 +1,6 @@
-<p>create-stat works!</p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+   <input type="text" ngModel name="id">
+   <input type="text" ngModel name="titre">
+   <input type="text" ngModel name="valeur">
+   <button>submit</button>
+</form>

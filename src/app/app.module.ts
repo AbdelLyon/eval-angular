@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StatistiqueComponent } from './statistique/statistique.component';
 import { ListComponent } from './list/list.component';
 import { CreateStatComponent } from './create-stat/create-stat.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CreateStatComponent } from './create-stat/create-stat.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

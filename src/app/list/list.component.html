@@ -1,1 +1,2 @@
 <p>list works!</p>
+<app-statistique (eventEmitter)="clickEvent($event)" *ngFor="let stat of stats" [stats]="stat"></app-statistique>

@@ -8,23 +8,10 @@ import { StatistiqueService } from './statistique.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public stat!: Statistique;
-  public stats: Statistique[] = [];
+
+  constructor() { }
 
 
-
-
-  constructor(private statistiqueService: StatistiqueService) {
-    this.stats = this.statistiqueService.stats
-  }
-
-  onDelete(stat: Statistique) {
-    this.statistiqueService.stats.splice(this.statistiqueService.stats.indexOf(stat), 1)
-  }
-
-  clickEvent(stat: Statistique) {
-    this.onDelete(stat)
-  }
 
   ngOnInit() { }
 

@@ -14,6 +14,7 @@ export class StatistiqueComponent implements OnInit {
 
   constructor() { }
 
+
   onDelete(stat: Statistique) {
     this.eventEmitter.emit(stat)
   }
